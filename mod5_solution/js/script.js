@@ -1,4 +1,5 @@
-$(function () { // Same as document.addEventListener("DOMContentLoaded"...
+$(function () { 
+  // Same as document.addEventListener("DOMContentLoaded"...
 
   // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
   $("#navbarToggle").blur(function (event) {
@@ -7,10 +8,13 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
       $("#collapsable-nav").collapse('hide');
     }
   });
+  
+  $("#navbarToggle").click(function (event) {
+    $(event.target).focus();
+  });
 });
 
 (function (global) {
-
 var dc = {};
 
 var homeHtmlUrl = "snippets/home-snippet.html";
@@ -40,8 +44,7 @@ var showLoading = function (selector) {
 // with propValue in given 'string' 
 var insertProperty = function (string, propName, propValue) {
   var propToReplace = "{{" + propName + "}}";
-  string = string
-    .replace(new RegExp(propToReplace, "g"), propValue);
+  string = string.replace(new RegExp(propToReplace, "g"), propValue);
   return string;
 }
 
